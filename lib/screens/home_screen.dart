@@ -27,15 +27,23 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(fontSize: 20.0),
               controller: null,//TODO 入力した文字を管理するTextEditionContorolre
             ),
-            Image.asset("assets/images/hello.png"),
-            width: double.infinity,
+            Expanded(child:Container()),
+            SizedBox(height: 50.0,),
+            SizedBox(height: 50.0,),
             ElevatedButton(
-                onPressed: null,//TODO ボタンのクリック処理
-                child: Text("おしてね",style: TextStyle(fontSize: 18.0),),
-            ),
+                onPressed: () => _onClick(),//TODO ボタンのクリック処理
+                child: Text("おしてね",style: TextStyle(fontSize:18.0),),)
           ],
         ),
       ),
     );
+  }
+  _onClick() {
+    //文字
+    var inputText = _textEditingController.text;
+    _textHezdar = "こんにちは！$inputTextさん";
+    //画像
+    _imageWidget = Image.asset("assets/images/hello.png");
+
   }
 }
