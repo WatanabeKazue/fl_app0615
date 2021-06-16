@@ -10,6 +10,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   String _textHeader = "あなたの名前を教えてください。";
   TextEditingController _textEditingController = TextEditingController();
+  Widget _imageWidget = Container();
 
   @override
   Widget build(BuildContext context) {
