@@ -24,20 +24,17 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: <Widget>[
             Center(
-              child: Text("あなたの名前をおしえてください",style: TextStyle(fontSize:  20.0)
+              child: Text(_textHeader,style: TextStyle(fontSize:  20.0)
               ),
             ),
             TextField(
               keyboardType: TextInputType.number,
               style: TextStyle(fontSize: 20.0),
-              controller: Text("あなたの名前を教えてください。",style: TextStyle(fontSize: ),),//TODO 入力した文字を管理するTextEditionContorolre
+              controller: _textEditingController,
             ),
-            Expanded(child:Container()),
+            Expanded(child:_imageWidget),
             SizedBox(height: 50.0,),
-            SizedBox(height: 50.0,),
-            ElevatedButton(
-                onPressed: () => _onClick(),//TODO ボタンのクリック処理
-                child: Text("おしてね",style: TextStyle(fontSize:18.0),),)
+
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -53,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onClick() {
     //文字
     var inputText = _textEditingController.text;
-    _textHezdar = "こんにちは！$inputTextさん";
+    _textHeader = "こんにちは！$inputTextさん";
     //画像
     _imageWidget = Image.asset("assets/images/hello.png");
 
