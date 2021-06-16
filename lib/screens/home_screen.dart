@@ -7,7 +7,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   String _textHeader = "あなたの名前を教えてください。";
   TextEditingController _textEditingController = TextEditingController();
   Widget _imageWidget = Container();
@@ -24,22 +23,25 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: <Widget>[
             Center(
-              child: Text(_textHeader,style: TextStyle(fontSize:  20.0)
-              ),
+              child: Text(_textHeader, style: TextStyle(fontSize: 20.0)),
             ),
             TextField(
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               style: TextStyle(fontSize: 20.0),
               controller: _textEditingController,
             ),
-            Expanded(child:_imageWidget),
-            SizedBox(height: 50.0,),
-
+            Expanded(child: _imageWidget),
+            SizedBox(
+              height: 50.0,
+            ),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => _onClick(),//TODO ボタンのクリック処理
-                child:  Text("おしてね",style: TextStyle(fontSize: 18.0),),
+                onPressed: () => _onClick(), //TODO ボタンのクリック処理
+                child: Text(
+                  "おしてね",
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             )
           ],
@@ -47,12 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   void _onClick() {
     //文字
     var inputText = _textEditingController.text;
     _textHeader = "こんにちは！$inputTextさん";
     //画像
     _imageWidget = Image.asset("assets/images/hello.png");
-
+    setState(() {});
   }
 }
