@@ -7,6 +7,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  String _textHeader = "あなたの名前を教えてください。";
+  TextEditingController _textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
             TextField(
               keyboardType: TextInputType.number,
               style: TextStyle(fontSize: 20.0),
-              controller: null,//TODO 入力した文字を管理するTextEditionContorolre
+              controller: Text("あなたの名前を教えてください。",style: TextStyle(fontSize: ),),//TODO 入力した文字を管理するTextEditionContorolre
             ),
             Expanded(child:Container()),
             SizedBox(height: 50.0,),
@@ -33,12 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ElevatedButton(
                 onPressed: () => _onClick(),//TODO ボタンのクリック処理
                 child: Text("おしてね",style: TextStyle(fontSize:18.0),),)
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => _onClick(),//TODO ボタンのクリック処理
+                child:  Text("おしてね",style: TextStyle(fontSize: 18.0),),
+              ),
+            )
           ],
         ),
       ),
     );
   }
-  _onClick() {
+  void _onClick() {
     //文字
     var inputText = _textEditingController.text;
     _textHezdar = "こんにちは！$inputTextさん";
