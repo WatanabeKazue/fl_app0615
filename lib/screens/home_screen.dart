@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(
+              child: RaisedButton(
                 onPressed: () => _onClick(), //TODO ボタンのクリック処理
                 child: Text(
                   "おしてね",
